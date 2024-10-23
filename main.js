@@ -18,7 +18,7 @@ const mockData = [
     }, 
     {
         dataKey: "*",
-        textContent: "*",
+        textContent: "x",
         class: []
     }, 
     {
@@ -118,7 +118,7 @@ const createBtnList = (buttonsList) => {
         const li = document.createElement("li")
         const a = document.createElement("a")
         a.href = "#"
-        a.dataset.dataKey = element.dataKey
+        a.dataset.key = element.dataKey
         a.textContent = element.textContent
         a.classList.add(...element.class);
         li.appendChild(a)
