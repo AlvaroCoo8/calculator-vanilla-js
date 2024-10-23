@@ -124,9 +124,38 @@ const createBtnList = () => {
         a.dataset.key = element.dataKey
         a.textContent = element.textContent
         a.classList.add(...element.class);
+        a.addEventListener("click", evenBtnCalculadora)
         li.appendChild(a)
         buttonsList.appendChild(li)
     });
+}
+
+let operation = "";
+
+const evenBtnCalculadora = (event) => {
+
+    const screen = document.getElementById("screen")
+    const element = event.target.dataset.key;
+
+    if (element === "clear") {
+        screen.textContent = "";
+        screen.style.fontSize = "3rem";
+        operation = "";
+    } else if (element === "equal") {
+        try {
+            const result = eval(operation);
+            screen.textContent = result;
+            operation = result.toString();
+            screen.style.fontSize = "3rem";
+        } catch (error) {
+            screen.textContent = error;
+            screen.style.fontSize = "1rem";
+        }
+    } else {
+        operation += element === "x" ? "*" : element;
+        screen.textContent = operation;
+        screen.style.fontSize = "3rem";
+    }
     
 }
 
