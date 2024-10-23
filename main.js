@@ -107,12 +107,15 @@ const initialize = () => {
     buttonsList.classList.add("buttons")
     calculator.appendChild(buttonsList)
 
-    createBtnList(buttonsList)
-
     body.appendChild(calculator)
+
+    createBtnList()
+
 } 
 
-const createBtnList = (buttonsList) => {  
+const createBtnList = () => {  
+
+    const buttonsList = document.querySelector("#buttons")
     
     mockData.forEach(element => {
         const li = document.createElement("li")
@@ -124,6 +127,7 @@ const createBtnList = (buttonsList) => {
         li.appendChild(a)
         buttonsList.appendChild(li)
     });
+    
 }
 
 document.addEventListener("DOMContentLoaded", () => initialize())
